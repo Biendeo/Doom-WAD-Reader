@@ -22,7 +22,7 @@ namespace Biendeo {
 		unsigned int numLumps;
 		// The location of the directory.
 		// TODO: Figure out what this is.
-		void* infoTableOfS;
+		wadAddress infoTableOfS;
 
 		// Returns a sub-array with a null terminator at the end.
 		byte* SubArray(byte* arr, int startPos, int length);

@@ -6,6 +6,7 @@
 
 namespace Biendeo {
 	WAD::WAD(char* wadLocation) {
+		// Is it a good thing to load the whole WAD into memory?
 		std::unique_ptr<byte[]> wadBinary(ReadFile(wadLocation));
 
 		std::unique_ptr<byte[]> wadType(SubArray(wadBinary.get(), 0, 4));
@@ -23,7 +24,7 @@ namespace Biendeo {
 		numLumps = LittleEndianToInt(numLumpsBytes.get());
 
 		std::unique_ptr<byte[]> infoTableOfSBytes(SubArray(wadBinary.get(), 8, 4));
-		infoTableOfS = (void*)LittleEndianToInt(infoTableOfSBytes.get());
+		infoTableOfS = (wadAddress)LittleEndianToInt(infoTableOfSBytes.get());
 	}
 
 	WAD::~WAD() {
