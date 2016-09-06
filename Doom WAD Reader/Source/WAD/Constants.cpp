@@ -1,5 +1,7 @@
 #include "Constants.h"
 
+#include <memory>
+
 namespace Biendeo {
 	namespace WAD {
 		unsigned int LittleEndianToInt(byte* arr) {
@@ -13,6 +15,13 @@ namespace Biendeo {
 			returnArr[2] = (byte)(number >> 16);
 			returnArr[3] = (byte)(number >> 24);
 
+			return returnArr;
+		}
+
+		byte* WAD::SubArray(byte* arr, int startPos, int length) {
+			byte* returnArr = new byte[length + 1];
+			memcpy(returnArr, &arr[startPos], length);
+			returnArr[length] = '\0';
 			return returnArr;
 		}
 	}

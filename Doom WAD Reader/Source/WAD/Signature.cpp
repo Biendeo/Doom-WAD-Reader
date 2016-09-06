@@ -1,9 +1,31 @@
 #include "Signature.h"
 
 #include <memory>
+#include <string>
 
 namespace Biendeo {
 	namespace WAD {
+		Signature::Signature() {
+			wadType = Identification::IWAD;
+			numLumps = 0;
+			infoTableOfS = 0;
+		}
+
+		Signature::Signature(byte* wadBinary) {
+			std::string wadTypeStr((char*)std::unique_ptr<byte[]>(SubArray(wadBinary, 0, 4)).get());
+
+			if (wadTypeStr == "IWAD") {
+				wadType = Identification::IWAD;
+			} else if (wadTypeStr == "PWAD") {
+				wadType = Identification::PWAD;
+			} else {
+				throw std::exception("WAD identification not detected.");
+			}
+
+			numLumps = LittleEndianToInt(std::unique_ptr<byte[]>(SubArray(wadBinary, 4, 4)).get());
+			infoTableOfS = (wadAddress)LittleEndianToInt(std::unique_ptr<byte[]>(SubArray(wadBinary, 8, 4)).get());
+		}
+
 		byte* Signature::ToBytes() {
 			// This creates a new array for the content. It is always 12 bytes long.
 			byte* arr = new byte[12];

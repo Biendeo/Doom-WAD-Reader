@@ -148,12 +148,14 @@
   <ItemGroup>
     <ClCompile Include="Source\Main.cpp" />
     <ClCompile Include="Source\WAD\Constants.cpp" />
+    <ClCompile Include="Source\WAD\Directory.cpp" />
     <ClCompile Include="Source\WAD\Signature.cpp" />
     <ClCompile Include="Source\WAD\WAD.cpp" />
     <ClCompile Include="Source\WAD\Identifaction.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Source\WAD\Constants.h" />
+    <ClInclude Include="Source\WAD\Directory.h" />
     <ClInclude Include="Source\WAD\Signature.h" />
     <ClInclude Include="Source\WAD\WAD.h" />
     <ClInclude Include="Source\WAD\Identification.h" />

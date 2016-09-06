@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Constants.h"
+#include "Directory.h"
 #include "Identification.h"
 #include "Signature.h"
 
@@ -20,9 +21,10 @@ namespace Biendeo {
 			private:
 			// The signature of this WAD.
 			Signature signature;
+			// The directory?
+			// TODO: Figure out what this is.
+			Directory directory;
 
-			// Returns a sub-array with a null terminator at the end.
-			byte* SubArray(byte* arr, int startPos, int length);
 			// Reads a file an returns an array of its contents.
 			byte* ReadFile(char* fileLocation);
 		};
