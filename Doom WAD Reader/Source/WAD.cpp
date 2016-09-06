@@ -5,15 +5,7 @@
 
 namespace Biendeo {
 	WAD::WAD(char* wadLocation) {
-		std::fstream wadFile(wadLocation, std::fstream::binary | std::fstream::in | std::fstream::ate);
-		wadFile.seekg(0, std::fstream::end);
-		int wadSize = static_cast<int>(wadFile.tellg());
-
-		byte* wadBinary = new byte[wadSize];
-
-		wadFile.seekg(0, std::fstream::beg);
-		wadFile.read(wadBinary, wadSize);
-		wadFile.close();
+		byte* wadBinary = readFile(wadLocation);
 
 		byte* wadType = SubArray(wadBinary, 0, 4);
 		std::string wadTypeStr(wadType);
@@ -50,5 +42,17 @@ namespace Biendeo {
 		memcpy(returnArr, &arr[startPos], length);
 		returnArr[length] = '\0';
 		return returnArr;
+	}
+
+	byte* WAD::readFile(char* fileLocation) {
+		std::fstream wadFile(fileLocation, std::fstream::binary | std::fstream::in | std::fstream::ate);
+		wadFile.seekg(0, std::fstream::end);
+		int wadSize = static_cast<int>(wadFile.tellg());
+
+		byte* wadBinary = new byte[wadSize];
+
+		wadFile.seekg(0, std::fstream::beg);
+		wadFile.read(wadBinary, wadSize);
+		wadFile.close();
 	}
 }

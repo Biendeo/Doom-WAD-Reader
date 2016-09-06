@@ -22,6 +22,7 @@ namespace Biendeo {
 		// Returns a sub-array with a null terminator at the end. Remember to delete this array
 		// when finished using it.
 		byte* SubArray(byte* arr, int startPos, int length);
-
+		// Reads a file an returns an array of its contents.
+		byte* readFile(char* fileLocation);
 	};
 }

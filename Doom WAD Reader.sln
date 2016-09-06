@@ -10,6 +10,18 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Other Files", "Other Files"
 		.gitignore = .gitignore
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Example WADs", "Example WADs", "{EED316E6-0AF1-4A75-8D7B-DA13BB6A1A8B}"
+	ProjectSection(SolutionItems) = preProject
+		Example WADs\freedoom1.wad = Example WADs\freedoom1.wad
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Output WADs", "Output WADs", "{3FCAC217-79CA-4F97-8E26-89E51F92FDF7}"
+	ProjectSection(SolutionItems) = preProject
+		Doom WAD Reader\test.wad = Doom WAD Reader\test.wad
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WADs", "WADs", "{D02D83BA-5975-401D-9F06-DADAE52EE049}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -29,5 +41,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{EED316E6-0AF1-4A75-8D7B-DA13BB6A1A8B} = {D02D83BA-5975-401D-9F06-DADAE52EE049}
+		{3FCAC217-79CA-4F97-8E26-89E51F92FDF7} = {D02D83BA-5975-401D-9F06-DADAE52EE049}
 	EndGlobalSection
 EndGlobal
