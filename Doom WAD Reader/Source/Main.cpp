@@ -1,7 +1,30 @@
 #include <iostream>
+#include <string>
+
+#include "WAD.h"
 
 int main(int argc, char* argv[]) {
-	std::cout << "This program has many features.\n";
+	using namespace Biendeo;
+	if (argc != 2) {
+		std::cerr << "Please run with a WAD path.\n";
+		return EXIT_FAILURE;
+	}
 
-	return 0;
+	char* wadLocation = argv[1];
+
+	// TODO: Use fewer pointers and switch to smart pointers.
+	WAD* testWad = nullptr;
+
+	try {
+		testWad = new WAD(wadLocation);
+	} catch (std::exception& e) {
+		std::cerr << e.what() << "\n";
+		return EXIT_FAILURE;
+	}
+
+	testWad->Write("test.wad");
+
+	delete testWad;
+
+	return EXIT_SUCCESS;
 }
