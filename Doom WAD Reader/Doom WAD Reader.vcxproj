@@ -147,13 +147,16 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Source\Main.cpp" />
-    <ClCompile Include="Source\WAD.cpp" />
-    <ClCompile Include="Source\WADType.cpp" />
+    <ClCompile Include="Source\WAD\Constants.cpp" />
+    <ClCompile Include="Source\WAD\Signature.cpp" />
+    <ClCompile Include="Source\WAD\WAD.cpp" />
+    <ClCompile Include="Source\WAD\Identifaction.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Source\Constants.h" />
-    <ClInclude Include="Source\WAD.h" />
-    <ClInclude Include="Source\WadType.h" />
+    <ClInclude Include="Source\WAD\Constants.h" />
+    <ClInclude Include="Source\WAD\Signature.h" />
+    <ClInclude Include="Source\WAD\WAD.h" />
+    <ClInclude Include="Source\WAD\Identification.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

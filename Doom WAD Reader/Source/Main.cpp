@@ -1,10 +1,10 @@
 #include <iostream>
 #include <string>
 
-#include "WAD.h"
+#include "WAD/WAD.h"
 
 int main(int argc, char* argv[]) {
-	using namespace Biendeo;
+	using namespace Biendeo::WAD;
 	if (argc != 2) {
 		std::cerr << "Please run with a WAD path.\n";
 		return EXIT_FAILURE;
