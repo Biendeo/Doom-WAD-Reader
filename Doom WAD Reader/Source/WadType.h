@@ -6,6 +6,6 @@ namespace Biendeo {
 		PWAD
 	};
 
-	// Returns a readable string version of the WAD type.
+	// Returns a readable string version of the WAD identification.
 	char* WADTypeToString(WADType type);
 }
