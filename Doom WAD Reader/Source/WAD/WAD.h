@@ -1,5 +1,7 @@
 #pragma once
 
+#include <vector>
+
 #include "Constants.h"
 #include "Directory.h"
 #include "Identification.h"
@@ -23,7 +25,7 @@ namespace Biendeo {
 			Signature signature;
 			// The directory?
 			// TODO: Figure out what this is.
-			Directory directory;
+			std::vector<Directory> directories;
 
 			// Reads a file an returns an array of its contents.
 			byte* ReadFile(char* fileLocation);

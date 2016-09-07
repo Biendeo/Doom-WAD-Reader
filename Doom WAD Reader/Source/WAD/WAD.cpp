@@ -11,7 +11,14 @@ namespace Biendeo {
 			std::unique_ptr<byte[]> wadBinary(ReadFile(wadLocation));
 
 			signature = Signature(wadBinary.get());
-			directory = Directory(&wadBinary.get()[signature.infoTableOfS]);
+
+			{
+				wadAddress lumpAddress = signature.infoTableOfS;
+				for (size_t i = 0; i < signature.numLumps; ++i) {
+					directories.emplace_back(&wadBinary.get()[lumpAddress]);
+					lumpAddress += 16;
+				}
+			}
 		}
 
 		WAD::~WAD() {
@@ -22,7 +29,10 @@ namespace Biendeo {
 			std::fstream wadFile(wadLocation, std::fstream::out);
 
 			wadFile.write((char*)std::unique_ptr<byte[]>(signature.ToBytes()).get(), 12);
-			wadFile.write((char*)std::unique_ptr<byte[]>(directory.ToBytes()).get(), 16);
+
+			for (Directory& directory : directories) {
+				wadFile.write((char*)std::unique_ptr<byte[]>(directory.ToBytes()).get(), 16);
+			}
 
 			wadFile.close();
 
