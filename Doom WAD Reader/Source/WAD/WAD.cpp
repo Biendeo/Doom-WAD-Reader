@@ -26,7 +26,7 @@ namespace Biendeo {
 		}
 
 		bool WAD::Write(char* wadLocation) {
-			std::fstream wadFile(wadLocation, std::fstream::out);
+			std::fstream wadFile(wadLocation, std::fstream::out | std::fstream::binary);
 
 			wadFile.write((char*)std::unique_ptr<byte[]>(signature.ToBytes()).get(), 12);
 
